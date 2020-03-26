@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<title>Upload Photo</title>
+</head>
+<body>
+
+	<% let outer_loop = Math.floor(coll_length / 3); %>
+	<% let count = coll_length-1; %>
+	<% for (var a = 0; a < outer_loop; a++) { %>
+		<div class="container">
+			<div class="row">
+				<% for (var b = 0; b < 3; b++) { %>
+					<% let temp = items[count].image; %>
+					<%	let photo = temp.toString('base64'); %>
+					<%	let pic = 'data:image/jpeg;base64,' + photo; %>
+					<div class="col-md-4">
+						<img src="<%= pic %>" alt="" height="100%" width="100%">
+					</div>
+					<% count=count-1 %>
+				<% } -%>
+			</div>
+		</div>
+	<% } -%>	
+
+
+	<div class="container">
+		<div class="row">
+			<% let leftover=count %>
+			<% for (var b = 0; b <= leftover ; b++) { %>
+				<% let temp = items[count].image; %>
+				<%	let photo = temp.toString('base64'); %>
+				<%	let pic = 'data:image/jpeg;base64,' + photo; %>
+				<div class="col-md-4">
+					<img src="<%= pic %>" alt="" height="300px" width="300px">
+				</div>
+				<% count=count-1 %>
+			<% } -%>
+		</div>
+	</div>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

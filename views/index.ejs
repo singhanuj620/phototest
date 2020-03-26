@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<title>Upload Photo</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 m-auto">
+				<h1 class="display-4 my-4 text-center">Upload The Photo</h1>
+
+
+				<form action="/uploadphoto" method="POST" enctype="multipart/form-data">
+					
+					<!-- <input type="text" name="username" id="username" class="custom-file mb-3" placeholder="Enter Name" > -->
+
+					<!-- <input type="text" name="username2" id="username2" class="custom-file mb-3" placeholder="Enter Name" > -->
+					
+					<div class="custom-file mb-3">
+						<input type="file" name="file" id="file" class="custom-file-input" accept="image/*">
+
+						<label for="file" class="custom-file-label">Choose File</label>
+
+						<input type="submit" value="Submit" class="btn btn-primary btn-block" style="margin-top: 10px">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
