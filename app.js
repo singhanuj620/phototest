@@ -7,9 +7,10 @@ const 	express			=	require('express'),
 		app				=	express(),
 		fs 				=	require('fs'),
 		path			=	require('path'),
+		dotenv			=	require('dotenv'),
 		formidable 		= 	require('formidable');
 
-
+dotenv.config();
 app.set('view engine' , 'ejs');
 app.use( express.static( "public" ) );
 app.use(express.urlencoded({extended: false}));
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(methodOverride('_method'));
 
-let url = "mongodb://singhanuj620:1Ab23cd45e@ds161700.mlab.com:61700/sample";
+let url = process.env.DB_URL;
 let dbo;
 MongoClient.connect(url,{useUnifiedTopology: true}, function(err, db) {
 	  	if (err) throw err;
